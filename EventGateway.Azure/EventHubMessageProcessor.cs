@@ -27,7 +27,7 @@ namespace EventGateway.Azure
             _eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
         }
 
-        public async Task Process(Message message)
+        public async Task<bool> Process(Message message)
         {
             Logger.Debug(m => m($"Processing {message}"));
 
@@ -39,10 +39,13 @@ namespace EventGateway.Azure
                 await _eventHubClient.SendAsync(eventData);
 
                 Logger.Debug(m => m($"Uploaded successfully {message}"));
+
+                return true;
             }
             catch (Exception ex)
             {
                 Logger.Error(m => m("Error while sending to hub"), ex);
+                return false;
             }
         }
 
@@ -54,7 +57,7 @@ namespace EventGateway.Azure
         private EventData ToEventData(Message message)
         {
             var bodyBytes = ToByteArray(message.Payload);
-            var eventData = new EventData(bodyBytes)
+            var eventData = new EventData(bodyBytes/* ?? new byte[0]*/)
             {
                 Properties =
                     {

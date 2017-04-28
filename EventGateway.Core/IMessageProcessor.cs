@@ -7,6 +7,6 @@ namespace EventGateway.Core
     /// </summary>
     public interface IMessageProcessor
     {
-        Task Process(Message message);
+        Task<bool> Process(Message message);
     }
 }

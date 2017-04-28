@@ -6,6 +6,7 @@ using Contour.Receiving.Consumers;
 using EventGateway.Azure;
 using EventGateway.Core;
 using EventGateway.CP;
+using EventGateway.RestClient;
 using Newtonsoft.Json.Linq;
 using Ninject;
 using Ninject.Modules;
@@ -24,12 +25,20 @@ namespace EventGateway.Host.DI
 
         private void LoadProcessorServices()
         {
-            var connectionString = ConfigurationManager.AppSettings["Azure.EventHubs.ConnectionString"];
-            var entityPath = ConfigurationManager.AppSettings["Azure.EventHubs.EntityPath"];
+            //// direct Azure message publisher
+            //var connectionString = ConfigurationManager.AppSettings["Azure.EventHubs.ConnectionString"];
+            //var entityPath = ConfigurationManager.AppSettings["Azure.EventHubs.EntityPath"];
+            //this.Bind<IMessageProcessor>()
+            //    .ToConstructor(ctx => new EventHubMessageProcessor(connectionString, entityPath))
+            //    .InSingletonScope()
+            //    .Named("AzureHubMessageProcessor");
+
+            // API proxy message publisher
+            var baseUrl = ConfigurationManager.AppSettings["RestClient.BaseUrl"];
             this.Bind<IMessageProcessor>()
-                .ToConstructor(ctx => new EventHubMessageProcessor(connectionString, entityPath))
+                .ToConstructor(ctx => new RestApiMessageProcessor(baseUrl))
                 .InSingletonScope()
-                .Named("AzureHubMessageProcessor");
+                .Named("RestApiMessageProcessor");
         }
 
         private void LoadIncomingMessageServices()

@@ -99,6 +99,10 @@
       <Project>{cf884fbb-4d42-43b9-87ed-53536f54c47f}</Project>
       <Name>EventGateway.CP</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EventGateway.RestClient\EventGateway.RestClient.csproj">
+      <Project>{5e6cd698-4528-4e9f-9803-60460b248a8d}</Project>
+      <Name>EventGateway.RestClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

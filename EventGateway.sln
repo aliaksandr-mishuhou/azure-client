@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventGateway.Host", "EventGateway.Host\EventGateway.Host.csproj", "{B1907B2C-1A23-4BA6-9DD7-17FE9C900D18}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventGateway.CP", "EventGateway.CP\EventGateway.CP.csproj", "{CF884FBB-4D42-43B9-87ED-53536F54C47F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventGateway.Azure", "EventGateway.Azure\EventGateway.Azure.csproj", "{0B1E5F7D-6763-4E4C-9326-CA1AB6E7DE72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventGateway.RestClient", "EventGateway.RestClient\EventGateway.RestClient.csproj", "{5E6CD698-4528-4E9F-9803-60460B248A8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0B1E5F7D-6763-4E4C-9326-CA1AB6E7DE72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B1E5F7D-6763-4E4C-9326-CA1AB6E7DE72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B1E5F7D-6763-4E4C-9326-CA1AB6E7DE72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E6CD698-4528-4E9F-9803-60460B248A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E6CD698-4528-4E9F-9803-60460B248A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E6CD698-4528-4E9F-9803-60460B248A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E6CD698-4528-4E9F-9803-60460B248A8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

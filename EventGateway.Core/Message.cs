@@ -14,7 +14,12 @@ namespace EventGateway.Core
 
         public override string ToString()
         {
-            return $"Label={Label}";
+            return $"Label={Label}, UID={GetHashCode()}";
+        }
+
+        public string ToJsonString()
+        {
+            return JsonConvert.SerializeObject(this);
         }
     }
 }
